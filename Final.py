@@ -151,7 +151,7 @@ def maintain_portfolio(req_portfolio, init_cash,tol):
                 continue
             price = get_price_old(i)
             total_value += (price*portfolio[i])
-            print("%s costs $%s per share today" % (i, price))
+            print("%s costs INR %s per share today" % (i, price))
             prices[i] = price
         # Record which stocks we need to rebalance
         to_rebalance = dict()
@@ -182,13 +182,13 @@ def maintain_portfolio(req_portfolio, init_cash,tol):
             del to_rebalance[ticker]
         # Print a summary of our portfolio
         print("\n----------------------------- RESULTS ---------------------------")
-        print("Portfolio Starting Value: $%s" % init_cash)
-        print("Portfolio Value: $%s" % round(total_value, 2))
+        print("Portfolio Starting Value: INR %s" % init_cash)
+        print("Portfolio Value: INR %s" % round(total_value, 2))
         print("Portfolio Contents:")
 #        portfolio = trading_api.get_portfolio()
         for i in portfolio:
             if i == 'CASH':
-                print("CASH: $%s (%s percent of portfolio)" % (
+                print("CASH: INR %s (%s percent of portfolio)" % (
                     round(portfolio[i], 2), round((portfolio[i] / total_value) * 100, 2)))
             else:
                 print("%s: %s shares (%s percent of portfolio)" % (
@@ -226,7 +226,7 @@ while continued == 'y':
                     print("There has been an error. Please type a different stock symbol: ")
                 else:
                     break
-        tol = float(input("How much is your tolerance level? (Enter as a % value): "))
+        tol = float(input("How much is your tolerance level? (Usually 5-10%): "))
         stock_info(symbol, tol)
     # Get exchange advice about digital and cryptocurrencies
     if task == '3':
@@ -296,8 +296,8 @@ while continued == 'y':
         for i in req_portfolio:
             req_portfolio[i] /= 100
         # What percentage are we allowed to be off? (To save trading commissions in the real world)
-        tol = float(input("What maintenance percentage am I allowed to be off by? "))
-        init_cash = float(input("How much cash would you like me to start with? "))
+        tol = float(input("What maintenance percentage am I allowed to be off by? (Usually 5-10% is optimal): "))
+        init_cash = float(input("How much cash would you like me to start with? (INR): "))
         tol /= 100
         maintain_portfolio(req_portfolio, init_cash,tol)
             
