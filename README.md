@@ -21,7 +21,7 @@ http-server
 # How does this work ?
 
 ## Screenshots
-![alt text](https://i.ibb.co/BtvtB4n/Start-Game.png)
+![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png)
 
 
 ## Future Work
