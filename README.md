@@ -1,6 +1,7 @@
 # RoboAdvisory
 MSBD6000E-FinTechProject
 
+# SWIPE ADVISORY - Robo-Advisory App for India
 
 **WIP**
 
@@ -56,6 +57,10 @@ le income and then suggest the suitable mutual funds for tax saving.
 
 ## Screenshots
 ![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png)
+
+# Technology Architecture 
+- Hosting
+- Technology stack
 
 # References
 
