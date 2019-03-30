@@ -1,5 +1,5 @@
 # RoboAdvisory
-MSBD6000E-FinTechProject
+MSBD6000E-FinTechProject-WIP
 
 # SWIPE ADVISORY - Robo-Advisory App for India
 
@@ -12,7 +12,12 @@ MSBD6000E-FinTechProject
 What things you need to install the software and how to install them
 
 ```
-http-server
+import json
+import os
+import requests
+import pandas as pd
+import pickle
+
 ```
 
 ### Installing
@@ -56,7 +61,9 @@ Investing in Tax Saver Mutual Funds (in India) can help people save taxes and he
 le income and then suggest the suitable mutual funds for tax saving.
 
 ## Screenshots
-![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png)
+
+Tutorial when you start the app: ![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png)
+Goals available: ![alt text](https://i.ibb.co/QJ9nvxS/Screen-Shot-2019-03-30-at-15-54-21.png)
 
 # Technology Architecture 
 - Hosting
