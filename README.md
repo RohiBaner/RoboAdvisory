@@ -62,8 +62,8 @@ le income and then suggest the suitable mutual funds for tax saving.
 
 ## Screenshots
 
-Tutorial when you start the app: ![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png)
-Goals available: ![alt text](https://i.ibb.co/QJ9nvxS/Screen-Shot-2019-03-30-at-15-54-21.png)
+Tutorial when you start the app: ![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png) <br/>
+Goals available: ![alt text](https://i.ibb.co/QJ9nvxS/Screen-Shot-2019-03-30-at-15-54-21.png) <br/>
 
 # Technology Architecture 
 - Hosting
