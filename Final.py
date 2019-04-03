@@ -243,7 +243,7 @@ if user not in user_base:
     user_base[user] = {'sal':salary,'age':age_group,'res':residency,'gender':gender}
     user_info = user_base[user]
     SaveDictionary(user_base, "userbase.txt")
-    print(user_info)
+    # print(user_info)
 else:
     print("Welcome", user)
     user_info = user_base[user]
