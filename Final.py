@@ -14,6 +14,30 @@ import pickle
 
 api_key = os.environ.get("KZSCEANOC0AZFNX5")
 
+def get_tolerance(user):
+    data = pd.read_csv("calculate_tolerance.csv", delimiter=",", index_col=False)
+    #Extract user information to find tolerance
+    sal = user['sal']
+    age = int(user['age'])
+    res = int(user['res'])
+    gender = user['gender']
+    #get salary category
+    if (sal<=250000):
+        sal_cat = 'L'
+    elif (sal>250000) & (sal<=1000000):
+        sal_cat = 'LM'
+    elif (sal>1000000) & (sal<=3000000):
+        sal_cat = 'UM'
+    elif (sal>3000000):
+        sal_cat = 'H'
+    #Narrow down according to above data and find appropriate tolerance
+    temp = data.loc[(data['Age_Min'] <= age) & (data['Age_Max'] >= age)]
+    temp1 = temp.loc[(temp['Gender'] == gender) & (temp['Residency'] == res) & (temp['Sal_Cat'] == sal_cat)]
+    #Extract and return tolerance values
+    tol_port = temp1['Tol_P']
+    tol_stock = temp1['Tol_S']
+    return tol_port, tol_stock
+
 
 def SaveDictionary(dictionary,File):
     with open(File, "wb") as myFile:
@@ -185,7 +209,6 @@ def maintain_portfolio(req_portfolio, init_cash,tol):
         print("Portfolio Starting Value: INR %s" % init_cash)
         print("Portfolio Value: INR %s" % round(total_value, 2))
         print("Portfolio Contents:")
-#        portfolio = trading_api.get_portfolio()
         for i in portfolio:
             if i == 'CASH':
                 print("CASH: INR %s (%s percent of portfolio)" % (
@@ -197,13 +220,36 @@ def maintain_portfolio(req_portfolio, init_cash,tol):
         print("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-")
         print("Your portfolio is upto date! Check on it again tomorrow!")
 
+"""----------------------------------------MAIN-----------------------------------------"""
 # Initial welcome statements
 print("\n\n+|---------------------------------------------------------------|+")
 print("+|               HELLO! WELCOME TO SWIPE ADVISORY!               |+")
 print("+|         What would you like me to help you with today?        |+")
 print("+|---------------------------------------------------------------|+")
 user = input("Please enter your username: ")
-print("Welcome", user)
+exist_user = os.path.isfile("userbase.txt")
+if exist_user:
+    user_base = LoadDictionary("userbase.txt")
+else:
+    user_base={}
+#If user not in user_base - add information to gather tolerance estimate
+if user not in user_base:
+    print("Hi,", user+"!\nSeems like it is the first time you are creating an account here...")
+    print("Please enter few additional details:")
+    salary = int(input("Enter your approximate yearly salary: INR "))
+    age_group = int(input("Enter your age: "))
+    residency = int(input("Enter your place of residency:\n(1)City\n(2)District\n(3)Village\n"))
+    gender = str(input("Enter your gender (M/F): "))
+    user_base[user] = {'sal':salary,'age':age_group,'res':residency,'gender':gender}
+    user_info = user_base[user]
+    SaveDictionary(user_base, "userbase.txt")
+    print(user_info)
+else:
+    print("Welcome", user)
+    user_info = user_base[user]
+#Get the required user tolerance limits
+tol_portfolio, tol_stockprice = get_tolerance(user_info)
+
 continued = 'y'
 while continued == 'y':
     print("\n\n\n1. Quick advise about buying a particular stock.")
@@ -226,7 +272,7 @@ while continued == 'y':
                     print("There has been an error. Please type a different stock symbol: ")
                 else:
                     break
-        tol = float(input("How much is your tolerance level? (Usually 5-10%): "))
+        tol = float(tol_stockprice)
         stock_info(symbol, tol)
     # Get exchange advice about digital and cryptocurrencies
     if task == '3':
@@ -296,7 +342,7 @@ while continued == 'y':
         for i in req_portfolio:
             req_portfolio[i] /= 100
         # What percentage are we allowed to be off? (To save trading commissions in the real world)
-        tol = float(input("What maintenance percentage am I allowed to be off by? (Usually 5-10% is optimal): "))
+        tol = float(tol_portfolio)
         init_cash = float(input("How much cash would you like me to start with? (INR): "))
         tol /= 100
         maintain_portfolio(req_portfolio, init_cash,tol)
