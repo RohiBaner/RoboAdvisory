@@ -80,6 +80,7 @@ Goals available: ![alt text](https://i.ibb.co/QJ9nvxS/Screen-Shot-2019-03-30-at-
 # Technology Architecture 
 - Hosting
 - Technology stack
+ ![alt text](https://i.ibb.co/Bc7S8SN/System-Architecture.png)
 
 # References
 - https://www.ey.com/Publication/vwLUAssets/ey-the-evolution-of-robo-advisors-and-advisor-2-model/$FILE/ey-the-evolution-of-robo-advisors-and-advisor-2-model.pdf
