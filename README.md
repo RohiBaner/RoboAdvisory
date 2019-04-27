@@ -83,10 +83,8 @@ Goals available:
 
 # Technology Architecture 
 - Hosting
-- Technology stack
-<br/>
+- Technology stack (system architecture) <br/>
 ![alt text](https://i.ibb.co/Bc7S8SN/System-Architecture.png)
-<br/>
 
 # References
 - https://www.ey.com/Publication/vwLUAssets/ey-the-evolution-of-robo-advisors-and-advisor-2-model/$FILE/ey-the-evolution-of-robo-advisors-and-advisor-2-model.pdf
