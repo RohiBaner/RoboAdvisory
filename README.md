@@ -74,12 +74,17 @@ Investing in Tax Saver Mutual Funds (in India) can help people save taxes and he
 le income and then suggest the suitable mutual funds for tax saving.
 
 ## Screenshots
-Tutorial when you start the app: ![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png) <br/>
-Goals available: ![alt text](https://i.ibb.co/QJ9nvxS/Screen-Shot-2019-03-30-at-15-54-21.png) <br/>
+Tutorial when you start the app: 
+<br/>
+![alt text](https://i.ibb.co/gRqYMYW/Screen-Shot-2019-03-30-at-15-46-27.png) <br/>
+Goals available: 
+<br/>
+![alt text](https://i.ibb.co/QJ9nvxS/Screen-Shot-2019-03-30-at-15-54-21.png) <br/>
 
 # Technology Architecture 
 - Hosting
 - Technology stack
+<br/>
  ![alt text](https://i.ibb.co/Bc7S8SN/System-Architecture.png)
 
 # References
