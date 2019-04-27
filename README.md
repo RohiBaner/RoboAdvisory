@@ -81,6 +81,9 @@ Goals available:
 <br/>
 ![alt text](https://i.ibb.co/QJ9nvxS/Screen-Shot-2019-03-30-at-15-54-21.png) <br/>
 
+# Mockup (rapid prototype)
+https://marvelapp.com/478f0id
+
 # Technology Architecture 
 - Hosting
 - Technology stack (system architecture) <br/>
@@ -95,6 +98,6 @@ Goals available:
 - https://www.accenture.com/_acnmedia/PDF-2/Accenture-Wealth-Management-Rise-of-Robo-Advice.pdf
 
 ## Future Work
-- Adding wallet management system
-- Financial advice ChatBot
-- Adding human interaction system
+- Add wallet management system (spend tracking etc.)
+- Financial advice ChatBot (automated / machine-learning)
+- Adding human interaction system (wealth managers at the tip of a button)
